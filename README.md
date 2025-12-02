@@ -27,11 +27,6 @@ A futuristic personal portfolio built with **React + TypeScript + Tailwind CSS +
 
 ---
 
-### 📸 Preview Screenshots
-(Add your screenshots here)
-
----
-
 ### 🧪 Running Locally
 ```bash
 git clone https://github.com/Sarang-Salunkhe/sarang-terminal.git
