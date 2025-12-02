@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overflow-y: auto;
+}
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .animate-fade-in-up-delay {
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+
+  .animate-fade-in-up-delay-2 {
+    animation: fadeInUp 1s ease-out 0.4s both;
+  }
+
+  .animate-fade-in-up-delay-3 {
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+
+  .animate-fade-in-up-delay-4 {
+    animation: fadeInUp 1s ease-out 0.8s both;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 1s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #00eaff, 0 0 20px #007bff; }
+  50% { box-shadow: 0 0 35px #00eaff, 0 0 60px #007bff; }
+  100% { box-shadow: 0 0 10px #00eaff, 0 0 20px #007bff; }
+}
+
+/* Custom Cursor CSS */
+/* main core dot */
+*{
+  cursor: none !important;
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #00eaff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s cubic-bezier(.22,.9,.36,1), background 0.12s ease, top 0.08s linear, left 0.08s linear;
+}
+
+/* ring */
+.cursor-ring {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #00eaff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s cubic-bezier(.22,.9,.36,1), box-shadow 0.2s ease, top 0.12s linear, left 0.12s linear;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 20px #00eaff;
+}
+
+/* orbital container */
+.orbit-container {
+  width: 42px;
+  height: 42px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  /* use a CSS variable for scale so animation can include it */
+  --cursor-scale: 1;
+  transform: translate(-50%, -50%) scale(var(--cursor-scale));
+  transition: transform 0.25s cubic-bezier(.22,.9,.36,1), top 0.12s linear, left 0.12s linear;
+  /* rotation is handled by inner rotator */
+}
+
+/* orbiting electrons */
+.orbit-ball {
+  width: 6px;
+  height: 6px;
+  background: #00eaff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(21px);
+  box-shadow: 0 0 12px #00eaff;
+}
+
+/* second electron opposite 180° */
+.orbit-ball:nth-child(2) {
+  transform: translate(-50%, -50%) translateX(21px) rotate(180deg);
+}
+
+/* rotation animation applied to inner rotator so container positioning isn't overridden */
+.orbit-rotator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%;
+  animation: orbit-rotate 2.5s linear infinite;
+}
+
+@keyframes orbit-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* hover effect */
+.cursor-ring.hovered {
+  /* scale instead of changing width/height to avoid reflow */
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.cursor-dot.hovered {
+  transform: translate(-50%, -50%) scale(1.7);
+}
+
+/* make orbit scale with ring when hovered */
+.orbit-container.hovered {
+  --cursor-scale: 1.4;
+}
+
+/* restore native cursor for form controls for accessibility */
+input, textarea, select, [contenteditable="true"] {
+  cursor: auto !important;
+}
+
+/*Reflection Code*/
+.reflection {
+  position: absolute;
+  top: -100%;
+  left: -150%;
+  width: 200%;
+  height: 250%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: reflection-move 4.8s infinite ease-in-out;
+  opacity: 0.45;
+}
+
+@keyframes reflection-move {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(120%) rotate(25deg);
+  }
+}
+
+
+/* Loader Fade Out Animation */
+.fade-out {
+  animation: fadeOutLoader 20s forwards ease-in-out;
+}
+
+@keyframes fadeOutLoader {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 0.5s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
