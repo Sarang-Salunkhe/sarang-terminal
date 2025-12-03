@@ -1,4 +1,5 @@
-# Sarang's Terminal Portfolio
+# Sarang's Terminal Portfolio 
+[Click Here!](https://sarang-terminal.netlify.app/)
 
 A futuristic personal portfolio built with **React + TypeScript + Tailwind CSS + Framer Motion**, featuring smooth animations, a hacking-style intro loader, interactive UI elements, and advanced contact form with real-time Email integration.
 
@@ -33,3 +34,8 @@ git clone https://github.com/Sarang-Salunkhe/sarang-terminal.git
 cd sarang-terminal
 npm install
 npm run dev
+```
+---
+
+### OR Just visit below site link
+[Visit My Portfolio](https://sarang-terminal.netlify.app/)
