@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarang-terminal.netlify.app/sitemap.xml
