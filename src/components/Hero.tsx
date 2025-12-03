@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { ReactTyped } from "react-typed";
 import profilePic from "../assets/profile.jpg";
 import { motion } from "framer-motion";
