@@ -19,8 +19,8 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "Animations"],
     image:
       "https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "#",
-    github: "#",
+    link: "https://sarang-salunkhe.github.io/Photopix/",
+    github: "https://github.com/Sarang-Salunkhe/Photopix",
   },
   {
     title: "YTGrav",
