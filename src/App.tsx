@@ -42,7 +42,7 @@ function App() {
     if (!loading) {
       const script = document.createElement("script");
       script.src =
-        "https://www.noupe.com/embed/019cdbf23efe729ba75913c12fc2b5f6dd18.js";
+        "https://www.noupe.com/embed/019cdc1770c97e4dbb869c36bfada96a7624.js";
       script.async = true;
 
       document.body.appendChild(script);
