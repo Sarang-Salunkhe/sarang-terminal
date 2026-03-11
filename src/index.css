@@ -97,7 +97,7 @@ html, body {
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 2147483647;
   transform: translate(-50%, -50%);
   transition: transform 0.18s cubic-bezier(.22,.9,.36,1), background 0.12s ease, top 0.08s linear, left 0.08s linear;
 }
@@ -110,7 +110,7 @@ html, body {
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 2147483646;
   transform: translate(-50%, -50%);
   transition: transform 0.25s cubic-bezier(.22,.9,.36,1), box-shadow 0.2s ease, top 0.12s linear, left 0.12s linear;
   backdrop-filter: blur(2px);
@@ -123,7 +123,7 @@ html, body {
   height: 42px;
   position: fixed;
   pointer-events: none;
-  z-index: 9997;
+  z-index: 2147483645;
   /* use a CSS variable for scale so animation can include it */
   --cursor-scale: 1;
   transform: translate(-50%, -50%) scale(var(--cursor-scale));

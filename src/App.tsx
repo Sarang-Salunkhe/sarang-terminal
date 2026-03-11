@@ -38,6 +38,17 @@ function App() {
     AOS.init({ duration: 900, once: true });
   }, []);
 
+  useEffect(() => {
+    if (!loading) {
+      const script = document.createElement("script");
+      script.src =
+        "https://www.noupe.com/embed/019cdbf23efe729ba75913c12fc2b5f6dd18.js";
+      script.async = true;
+
+      document.body.appendChild(script);
+    }
+  }, [loading]);
+
   // If loading show Loader only
   if (loading) {
     return <Loader onFinish={() => setLoading(false)} />;
